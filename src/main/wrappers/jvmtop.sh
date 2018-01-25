@@ -1,9 +1,9 @@
 #!/bin/sh
-# jvmtop - java monitoring for the command-line 
+# jvmtop - java monitoring for the command-line
 # launch script
 #
 # author: Markus Kolb
-# 
+#
 DIR=$( cd $(dirname $0) ; pwd -P )
 
 if [ -z "$JAVA_HOME" ] ; then
@@ -18,6 +18,6 @@ if [ ! -f "$TOOLSJAR" ] ; then
         exit 1
 fi
 
-"$JAVA_HOME"/bin/java $JAVA_OPTS -cp "$DIR/jvmtop.jar:$TOOLSJAR:/usr/share/java/jvmtop.jar" \
+"$JAVA_HOME"/bin/java ${JAVA_OPTS} -cp "$DIR/jvmtop.jar:$TOOLSJAR:/usr/share/java/jvmtop.jar" \
 com.jvmtop.JvmTop "$@"
 exit $?
